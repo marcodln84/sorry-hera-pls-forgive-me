@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sorry hera, i’ll do anything</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #ff9ebb; /* Pink background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    /* Screen 1: Initial view with "Click the heart!" */
+    .start-screen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .start-screen p {
+      color: #ff4b72;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      font-weight: 500;
+    }
+
+    /* Card Container */
+    .card-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .card {
+      background: #ffffff;
+      width: 100%;
+      padding: 40px 30px 50px 30px;
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      position: relative;
+      text-align: left;
+      opacity: 0;
+      transform: scale(0.2);
+      pointer-events: none;
+      transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      max-height: 0;
+      overflow: hidden;
+    }
+
+    /* Active state when heart is clicked */
+    .card-wrapper.open .card {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
+      max-height: 1000px;
+    }
+
+    .card-wrapper.open .start-text {
+      display: none;
+    }
+
+    /* Card Typography */
+    .card h1 {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 1.8rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: #111111;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .card p {
+      font-size: 0.88rem;
+      line-height: 1.5;
+      color: #444444;
+      margin-bottom: 16px;
+    }
+
+    .card-footer {
+      margin-top: 25px;
+      font-size: 0.85rem;
+      color: #111111;
+      line-height: 1.4;
+    }
+
+    .card-footer strong {
+      display: block;
+      font-weight: 700;
+    }
+
+    /* Heart Icon & CSS from video */
+    .heart {
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      cursor: pointer;
+      transition: transform 0.5s ease;
+    }
+
+    .heart svg {
+      width: 50px;
+      height: auto;
+      animation-name: beat;
+      animation-duration: 2s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      animation-play-state: running;
+      fill: #ff0000;
+      display: block;
+    }
+
+    @keyframes beat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.25);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card-wrapper" id="cardWrapper">
+    <!-- Initial instruction text -->
+    <div class="start-screen" id="startScreen" onclick="openCard()">
+      <p class="start-text">Click the heart!</p>
+    </div>
+
+    <!-- The Letter Card -->
+    <div class="card" id="letterCard">
+      <h1>DEAR HERA,</h1>
+      
+      <p>
+        Sorry for everything I've done and I hope you can forgive me. I promise you that I'll do anything within my power to make things right for us again. I hope we can go back to what we were before. I'm the one who broke what we had so I will be responsible for making things right for us again. I hope you reconsider this apology of me making things right again.
+      </p>
+
+      <p>
+        I love you so much and I am willing to do anything for you. Just name it, and I'll do anything to bring your trust back to me. Just give me one chance to make things right. I am a man of my words so just please bear with me, I know I messed up but that's the first and last time that it will happen. So please give let back into your life. I love you. 
+      </p>
+
+      <div class="card-footer">
+        <strong>With Love,</strong>
+        <span>Your Marco/JR?</span>
+      </div>
+    </div>
+
+    <!-- The Heart Button -->
+    <div class="heart" onclick="openCard()">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+      </svg>
+    </div>
+  </div>
+
+  <script>
+    function openCard() {
+      const wrapper = document.getElementById('cardWrapper');
+      wrapper.classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>
